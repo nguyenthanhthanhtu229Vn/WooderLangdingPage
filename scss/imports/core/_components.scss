@@ -1,0 +1,99 @@
+// css components
+.textbox {
+    --pText: 100px;
+    --pRight: 20px;
+    --wBefore: 80px;
+    padding-left: var(--pText);
+    padding-top: 80px;
+    padding-right: var(--pRight);
+    .titlemain {
+        color: $text-cl;
+        font-size: 40px;
+        font-weight: bold;
+        letter-spacing: 2.8px;
+        text-transform: uppercase;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &:before {
+            content: "";
+            width: var(--wBefore);
+            height: 2px;
+            background: #555555;
+            display: inline-block;
+            margin-left: -80px;
+            position: relative;
+            left: -20px;
+        }
+        &.--yellow {
+            color: $wood-cl;
+        }
+        &.--white {
+            color: $white-cl;
+        }
+    }
+    .description {
+        padding: 14px 0 28px 0;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.4px;
+        font-family: "fmain";
+        @include overtext(3);
+        max-height: 82px;
+        margin-bottom: 15px;
+        color: $gray-cl;
+        &.--white {
+            color: $white-cl;
+        }
+    }
+    &.--textright {
+        text-align: right;
+        padding-left: var(--pRight);
+        padding-right: var(--pText);
+        .titlemain {
+            flex-direction: row-reverse;
+            &::before {
+                margin-right: -80px;
+                right: -20px;
+                left: initial;
+                margin-left: initial;
+            }
+        }
+    }
+    &.--textcenter {
+        padding-left: 0;
+        padding-top: 0px;
+        padding-right: 0;
+        text-align: center;
+        margin: auto;
+        max-width: 480px;
+        .titlemain {
+            flex-direction: column-reverse;
+            &::before {
+                right: initial;
+                left: initial;
+                background: $wood-cl;
+                width: 40px;
+                margin: 10px auto;
+            }
+        }
+    }
+    @include sm {
+        --pText: 0px;
+        --pRight: 20px;
+        --wBefore: 80px;
+        padding-left: var(--pText);
+        padding-top: 20px;
+        padding-right: var(--pRight);
+        .titlemain {
+            &::before {
+                display: none;
+            }
+        }
+    }
+    @include xs {
+        .titlemain {
+            font-size: 32px;
+        }
+    }
+}

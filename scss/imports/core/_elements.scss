@@ -1,0 +1,94 @@
+// css button, title, icon, elements...
+.btn-video {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0px) !important;
+}
+
+.--button-main {
+    --fsButton: 14px;
+    --lpButton: 2.8px;
+    border: 2px solid $white-cl;
+    padding: 15px 40px 15px 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $white-cl;
+    text-transform: uppercase;
+    font-size: var(--fsButton);
+    font-weight: bold;
+    letter-spacing: var(--lpButton);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    @include transition(0.5s);
+    i {
+        display: block;
+        margin-left: 15px;
+        position: relative;
+        right: 0;
+        @include transition(0.5s);
+    }
+    &:hover {
+        background: $wood-cl;
+        @include transition(0.5s);
+        i {
+            margin-left: 22px;
+            right: -10px;
+            @include transition(0.5s);
+        }
+    }
+    .iconplay {
+        margin-right: 10px;
+    }
+    @include xs {
+        --fsButton: 8px;
+        --lpButton: 1.6px;
+        padding: 10px 10px;
+    }
+}
+
+.btnmore {
+    display: inline-flex;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2.8px;
+    transition: 0.5s;
+    color: $text-cl;
+    align-items: center;
+    position: relative;
+    @include transition(0.5s);
+    img {
+        margin-left: 10px;
+    }
+    &:before {
+        content: "";
+        width: 35px;
+        height: 2px;
+        background: $wood-cl;
+        display: block;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        @include transform(translateX(0));
+        @include transition(0.5s);
+    }
+    img {
+        @include transform(translateX(0px));
+        @include transition(0.5s);
+        position: relative;
+    }
+    &:hover {
+        color: $wood-cl;
+        img {
+            @include transform(translateX(10px));
+            @include transition(0.5s);
+        }
+        // &:before {
+        //     @include transform(translateX(100%));
+        //     @include transition(0.5s);
+        // }
+    }
+}

@@ -1,0 +1,108 @@
+// css footer
+footer {
+    background: $black-cl;
+    padding: 20px 0;
+    color: #b0b0b0;
+    font-family: "fmain";
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        .backtotop {
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .logoft {
+            position: absolute;
+            left: 50%;
+            @include transform(translateX(-50%));
+        }
+    }
+    @include sm {
+        .container {
+            flex-direction: column;
+            .logoft {
+                position: initial;
+                left: initial;
+                @include transform(initial);
+                margin: 30px auto;
+            }
+        }
+    }
+}
+
+.totop {
+    position: fixed;
+    z-index: 200;
+    border: solid $wood-cl;
+    border-width: 0 10px 10px 0;
+    display: inline-block;
+    padding: 9px;
+    cursor: pointer;
+    right: 20px;
+    bottom: 80px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    @include transition(0.5s);
+    opacity: 0;
+    pointer-events: none;
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+        @include transition(0.5s);
+    }
+    &:hover {
+        border-width: 0 15px 15px 0;
+    }
+}
+
+.popup-video {
+    z-index: 10000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .7);
+    justify-content: center;
+    align-items: center;
+    .iframe__wrap {
+        background: #000;
+        border: 5px solid #eee;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        max-width: 600px;
+        max-height: 338px;
+        .close {
+            position: absolute;
+            right: -25px;
+            top: -25px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-style: 20px;
+            width: 50px;
+            height: 50px;
+            background: $white-cl;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    @include xs {
+        .iframe__wrap {
+            max-width: 360px;
+            max-height: 320px;
+            .close {
+                right: 145px;
+                top: 345px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+    }
+}
